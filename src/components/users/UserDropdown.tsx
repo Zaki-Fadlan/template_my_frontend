@@ -5,9 +5,7 @@ import {
   DropdownMenu,
   DropdownItem,
   Avatar,
-  User,
   Link,
-  Badge,
 } from "@nextui-org/react";
 import { siteConfig } from "@/config/site";
 

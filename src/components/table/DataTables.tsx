@@ -22,15 +22,14 @@ import {
   getKeyValue,
   SortDescriptor,
 } from "@nextui-org/react";
-import { PlusIcon } from "./PlusIcon";
-import { VerticalDotsIcon } from "./VerticalDotsIcon";
-import { ChevronDownIcon } from "./ChevronDownIcon";
-import { SearchIcon } from "./SearchIcon";
+import { FiPlusCircle } from "react-icons/fi";
+import { BiSearchAlt } from "react-icons/bi";
+import { FaChevronDown } from "react-icons/fa";
+import { CiEdit } from "react-icons/ci";
+import { MdDeleteSweep, MdOutlineRemoveRedEye } from "react-icons/md";
+
 import { columns, users, statusOptions } from "./data";
 import { capitalize } from "./utils";
-import { EditIcon } from "./EditIcon";
-import { DeleteIcon } from "./DeleteIcon";
-import { EyeIcon } from "./EyeIcon";
 const statusColorMap: Record<string, ChipProps["color"]> = {
   active: "success",
   paused: "danger",
@@ -160,17 +159,17 @@ export default function DataTables() {
           <div className="relative flex items-center gap-2">
             <Tooltip content="Details">
               <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
-                <EyeIcon />
+                <MdOutlineRemoveRedEye className="text-indigo-600" />
               </span>
             </Tooltip>
             <Tooltip content="Edit user">
               <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
-                <EditIcon />
+                <CiEdit className="text-yellow-600" />
               </span>
             </Tooltip>
             <Tooltip color="danger" content="Delete user">
               <span className="text-lg text-danger cursor-pointer active:opacity-50">
-                <DeleteIcon />
+                <MdDeleteSweep />
               </span>
             </Tooltip>
           </div>
@@ -223,7 +222,7 @@ export default function DataTables() {
             <Dropdown>
               <DropdownTrigger className="hidden sm:flex">
                 <Button
-                  endContent={<ChevronDownIcon className="text-small" />}
+                  endContent={<FaChevronDown className="text-small" />}
                   variant="flat"
                 >
                   Status
@@ -247,7 +246,7 @@ export default function DataTables() {
             <Dropdown>
               <DropdownTrigger className="hidden sm:flex">
                 <Button
-                  endContent={<ChevronDownIcon className="text-small" />}
+                  endContent={<FaChevronDown className="text-small" />}
                   variant="flat"
                 >
                   Columns
@@ -268,7 +267,7 @@ export default function DataTables() {
                 ))}
               </DropdownMenu>
             </Dropdown>
-            <Button color="primary" endContent={<PlusIcon />}>
+            <Button color="primary" endContent={<FiPlusCircle />}>
               Add New
             </Button>
             <Button color="success">Download Excel</Button>
@@ -277,7 +276,7 @@ export default function DataTables() {
             isClearable
             className="w-full sm:max-w-[44%]"
             placeholder="Search by name..."
-            startContent={<SearchIcon />}
+            startContent={<BiSearchAlt />}
             value={filterValue}
             onClear={() => onClear()}
             onValueChange={onSearchChange}
